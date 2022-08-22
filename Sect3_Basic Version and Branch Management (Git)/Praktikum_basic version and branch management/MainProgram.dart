@@ -10,5 +10,4 @@ main() {
    print("============");
    print("fixing bug B");
    print("featureB");
-   print("featureB2");
 }
