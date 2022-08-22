@@ -7,5 +7,7 @@ main() {
    print("featureA");
    print("featureA2");
    print("============");
+   print("fixing bug B");
    print("featureB");
+   print("featureB2");
 }
