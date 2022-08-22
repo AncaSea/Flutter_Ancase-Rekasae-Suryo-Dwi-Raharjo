@@ -5,4 +5,5 @@ main() {
    print("============");
    print("fixing bug");
    print("featureA");
+   print("featureB");
 }
