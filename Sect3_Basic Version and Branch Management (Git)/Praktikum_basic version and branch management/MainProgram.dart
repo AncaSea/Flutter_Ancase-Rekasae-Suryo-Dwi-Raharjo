@@ -9,5 +9,6 @@ main() {
    print("featureA3");
    print("============");
    print("fixing bug B");
+   print("fixing bug B2");
    print("featureB");
 }
