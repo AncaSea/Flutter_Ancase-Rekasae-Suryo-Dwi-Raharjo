@@ -4,5 +4,6 @@ main() {
    print("Code Development");
    print("============");
    print("fixing bug B");
+   print("fixing bug B2");
    print("featureB");
 }
