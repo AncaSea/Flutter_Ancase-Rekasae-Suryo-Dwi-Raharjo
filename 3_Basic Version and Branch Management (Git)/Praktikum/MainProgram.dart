@@ -8,8 +8,5 @@ main() {
    print("featureA");
    print("featureA2");
    print("featureA3");
-<<<<<<< Updated upstream
-=======
    print("featureA4");
->>>>>>> Stashed changes
 }
