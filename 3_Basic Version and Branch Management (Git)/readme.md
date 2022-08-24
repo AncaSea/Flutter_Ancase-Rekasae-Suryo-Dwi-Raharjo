@@ -103,6 +103,6 @@ Berikut implementasi salah satu tipe merge yaitu *no fast forward* di terminal :
 
 <br>
 
-> #### note :
+> ### note :
 > berikut ini adalah gambar graph dari perintah-perintah git yang dilacak oleh git graph :
 > ![screenshot git graph](Screenshot/Screenshot_GitGraph.png)
