@@ -16,16 +16,17 @@ Nama        : Ancase Rekasae Suryo Dwi Raharjo
 
 Pada materi pertama-tama ada **beberapa poin** yang saya tangkap dan pahami, yaitu :
 1. Pengertian Software <br>
-   Software adalah perangkat lunak yang merupakan bagian dari komputer yang tidak mempunyai bentuk fisik dan terdiri dari beberapa perintah-perintah yang terorganisir di mana pengoperasiannya dilakukan melalui mesin komputer agar memenuhi tujuan software itu dibuat.
+   > Software adalah perangkat lunak yang merupakan bagian dari komputer yang tidak mempunyai bentuk fisik dan terdiri dari beberapa perintah-perintah yang terorganisir di mana pengoperasiannya dilakukan melalui mesin komputer agar memenuhi tujuan software itu dibuat.
 2. Jenis-jenis Software <br>
    - Web <br>
-    Yang dimaksut disini adalah software yang berbentuk atau berbasis website, contohnya Youtube.com, Gmail.com, dsb. Software-software tersebut dikembangkan menggunakan bahasa HTML, PHP, CSS, JS yang membutuhkan web server dan browser untuk menjalankannya seperti Chrome, Firefox atau Opera.
+    > Yang dimaksut disini adalah software yang berbentuk atau berbasis website, contohnya Youtube.com, Gmail.com, dsb. Software-software tersebut dikembangkan menggunakan bahasa HTML, PHP, CSS, JS yang membutuhkan web server dan browser untuk menjalankannya seperti Chrome, Firefox atau Opera.
    - Desktop <br>
-   Yang dimaksut disini adalah software yang berbentuk atau berbasis dekstop, contohnya CorelDraw, Adobe Illustrator, dsb.. Software Dekstop membutuhkan Setup pada aplikasi tersebut untuk melakukan instalasi pada dekstop dan menggunakan software dekstop
+   > Yang dimaksut disini adalah software yang berbentuk atau berbasis dekstop, contohnya CorelDraw, Adobe Illustrator, dsb.. Software Dekstop membutuhkan Setup pada aplikasi tersebut untuk melakukan instalasi pada dekstop dan menggunakan software dekstop
    - Mobile <br>
-   Yang dimaksut disini adalah software yang berbentuk atau berbasis mobile, contohnya WhatsApp, Instagram, dsb. Software mobile membutuhkan Setup pada aplikasi tersebut untuk melakukan instalasi yang terdapat pada App Store pada smartphone atau tablet dan menggunakan software mobile <br>
+   > Yang dimaksut disini adalah software yang berbentuk atau berbasis mobile, contohnya WhatsApp, Instagram, dsb. Software mobile membutuhkan Setup pada aplikasi tersebut untuk melakukan instalasi yang terdapat pada App Store pada smartphone atau tablet dan menggunakan software mobile <br>
 3. Pengembangan Software <br>
-   Bahasa pemrograman adalah rangkaian teks yang digunakan untuk memberi perintah kepada komputer dan berguna  untuk pengembangan software 
+   > Bahasa pemrograman adalah rangkaian teks yang digunakan untuk memberi perintah kepada komputer dan berguna  untuk pengembangan software 
+   
    Macam - macam Bahasa Pemrograman : <br>
    a. Java & Kotlin untuk Android Development. <br>
    b. Swift & Objective C untuk IOS Development. <br>
@@ -37,12 +38,12 @@ Pada materi pertama-tama ada **beberapa poin** yang saya tangkap dan pahami, yai
    
    2 Macam Software untuk Menjalankan / Menterjemahkan Bahasa Pemrograman :
 
-   a. Compiler <br>
+   > a. Compiler <br>
    Software yang digunakan untuk membaca perintah perintah dalam bahasa pemrograman dan mengubahnya kebahasa lain, biasanya dalam bentuk yang dikenali komputer seperti machine code.
    
    NB : machine code adalah kumpulan instruksi yang hanya dikenali komputer
    
-   b. Interpreter <br>
+   > b. Interpreter <br>
    Software yang digunakan untuk membaca perintah perintah dalam bahasa pemrograman dan langsung menjalankan perintah tersebut tanpa mengubah kebahasa lain.
    
    Perbedaan Compiler dan Interpreter
@@ -55,10 +56,11 @@ Pada materi pertama-tama ada **beberapa poin** yang saya tangkap dan pahami, yai
    Interpreter
    - Membaca kode tanpa mengubah ke bentuk lain
    - Proses lebih singkat
-   - Program lama berjalan karena diperlukan membaca ulang kode
+   - Program lama berjalan karena diperlukan membaca ulang kode <br>
 
 
 4. Mobile App Development
+   > mobile app development dibagi menjadi 2 berdasarkan sistem operasinya, yaitu :
 
    a. IOS <br>
    Berjalan pada sistem operasi IOS, Perangkat sistem operasi ini dikembangkan oleh Apple.
