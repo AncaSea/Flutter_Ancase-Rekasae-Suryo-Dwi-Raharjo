@@ -21,7 +21,7 @@ Pertama saya melakukan import 'dart:math', yang bertujuan untuk memanggil functi
 
 ![import Dart Marh](../Screenshots/Screenshot_importDartMath.png)
 
-Kedua membuat fungsi main untuk menjalankan dan menampilkan kode-kode program proses perhitungan Luas Lingkaran, seperti berikut :
+Kedua membuat fungsi main untuk menjalankan dan menampilkan kode-kode program proses perhitungan Luas Lingkaran dengan memanggil fungsi langsung dan diisi parameternya, seperti berikut :
 
 ![fungis Main](../Screenshots/Screenshot_fungsiMain.png)
 
@@ -38,7 +38,7 @@ Terakhir hasil output yang akan dihasilkan seperti berikut :
 
 >Task 2 saya membuat 3 variabel `String` seperti yang diperintahkan pada soal. Variabel tersebut berisi nama saya yang dibagi menjadi 3 bagian.
 
-Pertama seperti biasa membuat fungsi top level dart yaitu fungsi main dan didalamnya ada 3 variabel `String` berisi pengaalan nama saya dari `firstName`, `middelName`, dan `LastName`.
+Pertama seperti biasa membuat fungsi top level dart yaitu fungsi main dan didalamnya ada 3 variabel `String` berisi penggalan nama saya dari `firstName`, `middelName`, dan `LastName`.
 
 ![fungsi Main 3 variabel](../Screenshots/Screenshot_3Variebel.png)
 
