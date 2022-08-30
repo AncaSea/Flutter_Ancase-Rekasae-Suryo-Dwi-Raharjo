@@ -43,6 +43,6 @@ Pertama seperti biasa membuat fungsi top level dart yaitu fungsi main dan didala
 
 Kemudian dalam fungsi main tersebut penampilan output digunakan format kode yang cukup simpel untuk penggabungan `String` yang seperti diinginkan dan pemanggilan variabel-variabel nya yang simpel. Berikut untuk hasil outputnya :
 
-![hasil Run 3 Variabel](../Screenshots/Screenshot_hasilRun3variabel.png)
+![hasil Run 3 Variabel](../Screenshots/Screenshot_hasilRun3Variabel.png)
 
 ---
