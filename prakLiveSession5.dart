@@ -12,18 +12,18 @@ void main() {
 
   var a = bangun();
   print(a);
-  // print(dataNama(names));
-  // print(dataNama(reverseNames));
+  print(dataNama(names));
+  print(dataNama(reverseNames));
 
-  //   for (String name in names) {
-  //   if (name == 'ade') {
-  //     continue;
-  //   } else if (name == 'akbar') {
-  //     break;
-  //   } else {
-  //     print(name);
-  //   }
-  // }
+    for (String name in names) {
+    if (name == 'ade') {
+      continue;
+    } else if (name == 'akbar') {
+      break;
+    } else {
+      print(name);
+    }
+  }
 }
 
 String dataNama (List<String> inputName) {
