@@ -21,22 +21,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(title),
           actions: <Widget>[
             IconButton(
               icon: const Icon(
@@ -48,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         drawer: const DrawerPage(),
-        body: const ChatPage(),
+        body: ChatPage(),
 
         floatingActionButton: FloatingActionButton(
           onPressed: () {},

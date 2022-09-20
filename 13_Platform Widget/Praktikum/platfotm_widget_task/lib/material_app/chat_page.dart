@@ -1,10 +1,110 @@
 import 'package:flutter/material.dart';
 
-class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
+// ignore: must_be_immutable
+class ChatPage extends StatelessWidget {
+  ChatPage({super.key});
+
+  List<ChatUsers> chatUsers = [
+    ChatUsers(
+        name: "Dio Brando",
+        messageText: "Zehahahaha",
+        imageURL: "assets/jojo.png",
+        time: "Now",
+        messages: '5',
+        messageIn: true),
+    ChatUsers(
+        name: "Jotaro Kujo",
+        messageText: "That's Great",
+        imageURL: "assets/jotaro.jpg",
+        time: "Yesterday",
+        messages: '0',
+        messageIn: false),
+    ChatUsers(
+        name: "Joseph Joestar",
+        messageText: "Hey where are you?",
+        imageURL: "assets/jojo.png",
+        time: "31 Mar",
+        messages: '6',
+        messageIn: true),
+    ChatUsers(
+        name: "Giorno Giovanna",
+        messageText: "Busy! Call me in 20 mins",
+        imageURL: "assets/jotaro.jpg",
+        time: "28 Mar",
+        messages: '2',
+        messageIn: true),
+    ChatUsers(
+        name: "Kira Yoshikage",
+        messageText: "Thankyou, It's awesome",
+        imageURL: "assets/jojo.png",
+        time: "23 Mar",
+        messages: '0',
+        messageIn: false),
+    ChatUsers(
+        name: "Enrico Pucci",
+        messageText: "will update you in evening",
+        imageURL: "assets/jotaro.jpg",
+        time: "17 Mar",
+        messages: '0',
+        messageIn: true),
+    ChatUsers(
+        name: "Adityo Joestar",
+        messageText: "Can you please send the gun?",
+        imageURL: "assets/jojo.png",
+        time: "24 Feb",
+        messages: '1',
+        messageIn: true),
+    ChatUsers(
+        name: "Josuke Higashikata",
+        messageText: "Nani?",
+        imageURL: "assets/jotaro.jpg",
+        time: "18 Feb",
+        messages: '5',
+        messageIn: true),
+    ChatUsers(
+        name: "Diavolo",
+        messageText: "How are you?",
+        imageURL: "assets/jojo.png",
+        time: "18 Feb",
+        messages: '0',
+        messageIn: false),
+    ChatUsers(
+        name: "Mohammed Abdul",
+        messageText: "Orarararara!!",
+        imageURL: "assets/jotaro.jpg",
+        time: "18 Feb",
+        messages: '0',
+        messageIn: false),
+  ];
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView.builder(
+        itemCount: chatUsers.length,
+        shrinkWrap: true,
+        padding: const EdgeInsets.only(top: 16),
+        physics: const AlwaysScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              ConversationList(
+                name: chatUsers[index].name,
+                messageText: chatUsers[index].messageText,
+                imageUrl: chatUsers[index].imageURL,
+                time: chatUsers[index].time,
+                isMessageRead:
+                    (chatUsers[index].messages == '0') ? true : false,
+                messageIn: chatUsers[index].messageIn,
+                messages: chatUsers[index].messages,
+              ),
+              const Divider(height: 25, thickness: 2)
+            ],
+          );
+        },
+      ),
+    );
+  }
 }
 
 class ChatUsers{
@@ -24,7 +124,8 @@ class ChatUsers{
       });
 }
 
-class ConversationList extends StatefulWidget {
+// ignore: must_be_immutable
+class ConversationList extends StatelessWidget {
   String name;
   String messageText;
   String imageUrl;
@@ -43,13 +144,8 @@ class ConversationList extends StatefulWidget {
         required this.messages,
       });
   @override
-  State<ConversationList> createState() => _ConversationListState();
-}
-
-class _ConversationListState extends State<ConversationList> {
-  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {},
       child: Container(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
@@ -59,7 +155,7 @@ class _ConversationListState extends State<ConversationList> {
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundImage: ExactAssetImage(widget.imageUrl),
+                    backgroundImage: AssetImage(imageUrl),
                     backgroundColor: Colors.transparent,
                     maxRadius: 30,
                   ),
@@ -73,18 +169,18 @@ class _ConversationListState extends State<ConversationList> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            widget.name,
+                            name,
                             style: const TextStyle(fontSize: 16),
                           ),
                           const SizedBox(
                             height: 6,
                           ),
                           Text(
-                            widget.messageText,
+                            messageText,
                             style: TextStyle(
                                 fontSize: 13,
                                 color: Colors.grey.shade600,
-                                fontWeight: widget.isMessageRead
+                                fontWeight: isMessageRead
                                     ? FontWeight.normal
                                     : FontWeight.bold),
                           ),
@@ -95,9 +191,6 @@ class _ConversationListState extends State<ConversationList> {
                 ],
               ),
             ),
-            // Container(
-              
-            // ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -106,18 +199,18 @@ class _ConversationListState extends State<ConversationList> {
                     Icon(
                       Icons.check,
                       color: 
-                        !widget.isMessageRead && widget.messageIn ? Colors.transparent
-                        : widget.isMessageRead && !widget.messageIn ? Colors.blueGrey
-                        : widget.isMessageRead && widget.messageIn ? Colors.green
+                        !isMessageRead && messageIn ? Colors.transparent
+                        : isMessageRead && !messageIn ? Colors.blueGrey
+                        : isMessageRead && messageIn ? Colors.green
                         : Colors.blueGrey
                         ),
                     Text(
-                      widget.time,
+                      time,
                       style: TextStyle(
-                          fontSize:  widget.isMessageRead 
+                          fontSize:  isMessageRead 
                             ? 12
                             : 14,
-                          fontWeight: widget.isMessageRead
+                          fontWeight: isMessageRead
                             ? FontWeight.normal
                             : FontWeight.bold
                       ),
@@ -128,14 +221,14 @@ class _ConversationListState extends State<ConversationList> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     // borderRadius: BorderRadius.circular(10),
-                    color: widget.isMessageRead
+                    color: isMessageRead
                       ? Colors.white 
                       : Colors.green,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(7), //apply padding to all four sides
                     child: Text(
-                      widget.messages,
+                      messages,
                       style: const TextStyle(
                         color: Colors.white,
                       ),
@@ -151,43 +244,3 @@ class _ConversationListState extends State<ConversationList> {
   }
 }
 
-class _ChatPageState extends State<ChatPage> {
-
-  List<ChatUsers> chatUsers = [
-    ChatUsers(name: "Dio Brando", messageText: "Zehahahaha", imageURL: "assets/jojo.png", time: "Now", messages: '5', messageIn: true),
-    ChatUsers(name: "Jotaro Kujo", messageText: "That's Great", imageURL: "assets/jotaro.jpg", time: "Yesterday", messages: '0', messageIn: false),
-    ChatUsers(name: "Joseph Joestar", messageText: "Hey where are you?", imageURL: "assets/jojo.png", time: "31 Mar", messages: '6', messageIn: true),
-    ChatUsers(name: "Giorno Giovanna", messageText: "Busy! Call me in 20 mins", imageURL: "assets/jotaro.jpg", time: "28 Mar", messages: '2', messageIn: true),
-    ChatUsers(name: "Kira Yoshikage", messageText: "Thankyou, It's awesome", imageURL: "assets/jojo.png", time: "23 Mar", messages: '0', messageIn: false),
-    ChatUsers(name: "Enrico Pucci", messageText: "will update you in evening", imageURL: "assets/jotaro.jpg", time: "17 Mar", messages: '0', messageIn: true),
-    ChatUsers(name: "Adityo Joestar", messageText: "Can you please send the gun?", imageURL:"assets/jojo.png", time: "24 Feb", messages: '1', messageIn: true),
-    ChatUsers(name: "Josuke Higashikata", messageText: "Nani?", imageURL: "assets/jotaro.jpg", time: "18 Feb", messages: '5', messageIn: true),
-    ChatUsers(name: "Diavolo", messageText: "How are you?", imageURL: "assets/jojo.png", time: "18 Feb", messages: '0', messageIn: false),
-    ChatUsers(name: "Mohammed Abdul", messageText: "Orarararara!!", imageURL: "assets/jotaro.jpg", time: "18 Feb", messages: '0', messageIn: false),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: ListView.builder(
-          itemCount: chatUsers.length,
-          shrinkWrap: true,
-          padding: const EdgeInsets.only(top: 16),
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return ConversationList(
-              name: chatUsers[index].name,
-              messageText: chatUsers[index].messageText,
-              imageUrl: chatUsers[index].imageURL,
-              time: chatUsers[index].time,
-              isMessageRead: (chatUsers[index].messages == '0') ? true : false,
-              messageIn: chatUsers[index].messageIn,
-              messages: chatUsers[index].messages,
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
