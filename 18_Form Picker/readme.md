@@ -183,10 +183,6 @@ Cara membuat date picker:
             sdk: flutter
         intl: ^0.17.0
     ```
-- Mengimport packages intl
-  ```cs
-  import 'package:intl/intl.dart';
-  ```
 - Mempersiapkan variabel
   ```cs
   class _HomePageState extends State<HomePage> {
