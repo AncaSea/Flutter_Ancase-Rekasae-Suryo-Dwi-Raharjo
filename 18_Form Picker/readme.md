@@ -370,7 +370,7 @@ Cara membuat File Picker:
   ```
 - Mengambil file dari object return dan memanggil fungsi _openFile di dalam fungsi _pickFile
   ```cs
-  void _openFile() async {
+  void _pickFile() async {
     final result = await FilePicker.platform.pickFiles();
     if (result == null) return;
 
