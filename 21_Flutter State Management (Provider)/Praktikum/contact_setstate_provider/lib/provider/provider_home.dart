@@ -105,9 +105,7 @@ class _MyHomePageProviderState extends State<MyHomePageProvider> {
                                               content: Text(
                                                   '${contactProvider.contacts[index].name} Deleted')),
                                         );
-                                        setState(() {
-                                          contactProvider.delete(index);
-                                        });
+                                        contactProvider.delete(index);
                                       },
                                       child: const Text(
                                         'YES',
