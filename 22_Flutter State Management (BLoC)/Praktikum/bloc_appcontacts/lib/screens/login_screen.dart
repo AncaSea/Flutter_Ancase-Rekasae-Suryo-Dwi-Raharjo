@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/contact_bloc.dart';
 import '../new_contact.dart';
+import 'contact_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key, required this.title});
@@ -99,8 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       // final items = Contact(name: nameController.text, phone: phoneController.text);
                       if (formLoginKey.currentState!.validate()) {
                           if (state is LoginSuccess) {
-                            const Center(
-                                child: CircularProgressIndicator());
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactScreen(title: 'Contacts',)));
                           } else if (state is LoginFailed) {
                             Container(
                               alignment: Alignment.center,
