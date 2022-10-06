@@ -29,14 +29,6 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: BlocBuilder<BlocLoginBloc, BlocLoginState>(
         builder: (context, state) {
-          if (state is LoginSuccess) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is LoginFailed) {
-            return Container(
-              alignment: Alignment.center,
-              child: Text("Add Failure is triggered with "),
-            );
-          }
           return Form(
             key: formLoginKey,
             child: ListView(
@@ -106,15 +98,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       // final items = Contact(name: nameController.text, phone: phoneController.text);
                       if (formLoginKey.currentState!.validate()) {
-                        Navigator.pop(context);
-                        // context.read<ContactBloc>().add(AddContact(items));
-                        // Navigator.pop(
-                        //   context,
-                        //   Contact(
-                        //     name: nameController.text,
-                        //     phone: phoneController.text,
-                        //   )
-                        // );
+                          if (state is LoginSuccess) {
+                            const Center(
+                                child: CircularProgressIndicator());
+                          } else if (state is LoginFailed) {
+                            Container(
+                              alignment: Alignment.center,
+                              child: Text("Add Failure is triggered with "),
+                            );
+                          }
                       }
                     },
                     child: const Text(
