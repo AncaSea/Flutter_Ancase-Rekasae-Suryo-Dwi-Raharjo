@@ -1,8 +1,7 @@
-import 'package:bloc_appcontacts/bloc/bloc_login_bloc.dart';
+import 'package:bloc_appcontacts/bloc/auth/auth_bloc.dart';
+import 'package:bloc_appcontacts/bloc/login/bloc_login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../bloc/contact_bloc.dart';
 import '../new_contact.dart';
 import 'contact_screen.dart';
 
@@ -21,14 +20,32 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  // void loginError() {
+  //   const AlertDialog(
+  //     title: Text('data'),
+  //     actions: [
+
+  //     ],
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
-    context.read<BlocLoginBloc>().add(LoginSubmitted());
+    // context.read<BlocLoginBloc>().add(LoginSubmitted(username: '', password: ''));
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: BlocBuilder<BlocLoginBloc, BlocLoginState>(
+      body: BlocConsumer<BlocLoginBloc, BlocLoginState>(
+        listener: (context, state) {
+          if (state is AuthError) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Login failed')),
+            );
+          } else if (state is AuthLoaded) {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactScreen(title: 'Contacts')));
+          }
+        },
         builder: (context, state) {
           return Form(
             key: formLoginKey,
@@ -98,15 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       // final items = Contact(name: nameController.text, phone: phoneController.text);
-                      if (formLoginKey.currentState!.validate()) {
-                          if (state is LoginSuccess) {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactScreen(title: 'Contacts',)));
-                          } else if (state is LoginFailed) {
-                            Container(
-                              alignment: Alignment.center,
-                              child: Text("Add Failure is triggered with "),
-                            );
-                          }
+                      if (formLoginKey.currentState!.validate()) {                    
                       }
                     },
                     child: const Text(

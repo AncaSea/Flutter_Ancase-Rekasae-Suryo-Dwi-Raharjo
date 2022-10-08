@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/contact_bloc.dart';
+import '../bloc/contact/contact_bloc.dart';
 import '../models/contact_model.dart';
 import '../new_contact.dart';
 

@@ -8,10 +8,10 @@ part 'bloc_login_state.dart';
 
 class BlocLoginBloc extends Bloc<BlocLoginEvent, BlocLoginState> {
   BlocLoginBloc() : super(BlocLoginInitial()) {
-    on<BlocLoginEvent>((event, emit) {
-      // TODO: implement event handler
+    on<BlocLoginEvent>((event, emit) async {
+      if (event is LoginNavBack) {
+        emit(BlocLoginSubmitted());
+      }
     });
-
-    on<LoginSubmitted>((event, emit) => null);
   }
 }
