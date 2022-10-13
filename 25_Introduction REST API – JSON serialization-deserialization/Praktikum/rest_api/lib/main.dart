@@ -1,7 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
+import 'package:rest_api/action/method.dart';
 
 void main() => runApp(const MyApp());
 
@@ -20,36 +18,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class UserModel {
-  String? name;
-  String? job;
-
-  UserModel(
-    this.name,
-    this.job,
-  );
-
-  Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'job': job,
-    };
-  }
-
-  UserModel.fromJson(Map<String, dynamic> map) {
-    name = map['name'];
-    job = map['job'];
-  }
-}
-
-class UserModelGet {
-  String? data;
-
-  UserModelGet(
-    this.data
-  );
-}
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
@@ -59,73 +27,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final Dio dio = Dio();
-  Map<String, dynamic> listapi = {};
+  ActionMethodAPI method = ActionMethodAPI();
   final formKey = GlobalKey<FormState>();
 
   TextEditingController nameController = TextEditingController();
   TextEditingController jobController = TextEditingController();
-
-  Future getUsers() async {
-    try {
-      final Response response = await dio.get('https://reqres.in/api/users%27');
-      debugPrint(response.data.toString());
-      return response.data;
-    } catch (e) {
-      rethrow;
-    }
-  }
-
-  Future postUser({
-    required String name,
-    required String job,
-  }) async {
-    try {
-      final Response response = await dio.post(
-        'https://reqres.in/api/users',
-        data: {
-          'name': name,
-          'job': job,
-        },
-      );
-      final UserModel usermodel = UserModel.fromJson(response.data);
-      debugPrint(response.data.toString());
-      return usermodel.toMap();
-    } catch (e) {
-      rethrow;
-    }
-  }
-
-  Future putUser({
-    required String name,
-    required String job,
-  }) async {
-    try {
-      final Response response = await dio.put(
-        'https://reqres.in/api/users/4',
-        data: {
-          'name': name,
-          'job': job,
-        },
-      );
-      final UserModel usermodel = UserModel.fromJson(response.data);
-      debugPrint(response.data.toString());
-      return usermodel.toMap();
-    } catch (e) {
-      rethrow;
-    }
-  }
-
-  Future deleteUser() async {
-    try {
-      final Response response = await dio.delete(
-        'https://reqres.in/api/users/4',
-      );
-      debugPrint(response.data.toString());
-    } catch (e) {
-      rethrow;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -200,9 +106,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           alignment: Alignment.center,
                           child: ElevatedButton(
                             onPressed: () async {
-                              final data = await getUsers(); 
+                              final data = await method.getUsers(); 
                               setState(() {
-                                listapi = data;
+                                method.listapi = data;
                               });
                             },
                             child: const Text(
@@ -216,9 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: ElevatedButton(
                             onPressed: () async {
                               if (formKey.currentState!.validate()) {
-                                final data = await postUser(name: nameController.text, job: jobController.text);
+                                final data = await method.postUser(name: nameController.text, job: jobController.text);
                                 setState(() {
-                                  listapi = data;
+                                  method.listapi = data;
                                 });
                               }
                             },
@@ -233,9 +139,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: ElevatedButton(
                             onPressed: () async {
                               if (formKey.currentState!.validate()) {
-                                final data = await putUser(name: nameController.text, job: jobController.text);
+                                final data = await method.putUser(name: nameController.text, job: jobController.text);
                                 setState(() {
-                                  listapi = data;
+                                  method.listapi = data;
                                 });
                               }
                             },
@@ -250,9 +156,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: ElevatedButton(
                             onPressed: () async {
                               if (formKey.currentState!.validate()) {
-                                await deleteUser();
+                                await method.deleteUser();
                                 setState(() {
-                                  listapi.clear();
+                                  nameController.clear();
+                                  jobController.clear();
+                                  method.listapi.clear();
                                 });
                               }
                             },
@@ -273,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 const Text('Result'),
                 SizedBox(
-                  child: Text('$listapi'),
+                  child: Text('${method.listapi}'),
                 ),
               ],
             ),
