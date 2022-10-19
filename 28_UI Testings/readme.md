@@ -56,4 +56,4 @@ Berikut ini adalah langkah-langkah melakukan UI Testings:
    Kemudian untuk menjalankan testing dapat dengen mengetikkan perintah `flutter test` di terminal, yang akan menjalankan seluruh file test yang dibuat. <br>
    Hasil dari perintah tersebut berupa lamanya waktu pengujian, total pengujian yang dilakukan, dan pesan bahwa pengujian berhasil atau jika gagal akan ditampilkan penyebab gagalnya pengujian
 
----
+--- 
