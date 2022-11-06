@@ -24,7 +24,6 @@ class AboutUsListItem extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: ListView.builder(
-        shrinkWrap: true,
         itemCount: produk.length,
         itemBuilder: (ctx, i) => Container(
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -58,12 +57,9 @@ class AboutUsListItem extends StatelessWidget {
               Column(
                 children: [
                   ListTile(
-                    title: Text(
-                      'Harga Tiket',
-                      style: GoogleFonts.dmSans(
-                          fontWeight: FontWeight.w700, color: Colors.black
-                      )
-                    ),
+                    title: Text('Harga Tiket',
+                        style: GoogleFonts.dmSans(
+                            fontWeight: FontWeight.w700, color: Colors.black)),
                     subtitle: Text(
                       produk[i].price,
                       style: TextStyle(
@@ -79,9 +75,8 @@ class AboutUsListItem extends StatelessWidget {
                     subtitle: Text(
                       produk[i].kelas,
                       style: TextStyle(
-                        fontFamily: GoogleFonts.dmSans().fontFamily,
-                        color: Colors.amber[600]
-                      ),
+                          fontFamily: GoogleFonts.dmSans().fontFamily,
+                          color: Colors.amber[600]),
                     ),
                   ),
                 ],
