@@ -40,10 +40,15 @@ class _ButtonLogFormState extends State<ButtonLogForm> {
               final pwd = value.listregister.where(
                 (data) => widget.pass.text == (data.password)).isNotEmpty;
               if (user && pwd || mail && pwd) {
-                final dataUser = value.listregister.where((data) =>
+                final dataUserByName = value.listregister.where((data) =>
                   data.nama.contains(widget.usermail.text)).toList();
-                value.updatePreferences(
-                  dataUser.first.nama, dataUser.first.email, dataUser.first.password);
+                final dataUserByMail = value.listregister.where((data) =>
+                  data.email.contains(widget.usermail.text)).toList();
+                dataUserByName.isNotEmpty ?
+                  value.updatePreferences(
+                    dataUserByName.first.nama, dataUserByName.first.email, dataUserByName.first.password)
+                : value.updatePreferences(
+                    dataUserByMail.first.nama, dataUserByMail.first.email, dataUserByMail.first.password);
                   setIsLogin();
                 // print('isLoginForm: ${loginData.getBool('isLogin')}');
                 Navigator.pushReplacementNamed(context, HomePage.routeName);
