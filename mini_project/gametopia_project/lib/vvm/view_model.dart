@@ -31,7 +31,7 @@ class GameStoreManager extends ChangeNotifier {
   void setDataUser(String email, String password) async {
     try {
       apiState = ApiState.loading;
-      print('stateProfile: $apiState');
+      // print('stateProfile: $apiState');
       await Future.delayed(const Duration(seconds: 1), () {
         if (items.isEmpty) {
           items.add(ProfileInfoItem('Email', email));
@@ -39,7 +39,7 @@ class GameStoreManager extends ChangeNotifier {
         }
       });
       apiState = ApiState.none;
-      print('stateProfile: $apiState');
+      // print('stateProfile: $apiState');
     } catch (e) {
       apiState = ApiState.error;
     }
@@ -49,8 +49,8 @@ class GameStoreManager extends ChangeNotifier {
   Future<void> addRegister(Register register, String user, String email, String pass) async {
     listregister.add(register);
     await updatePreferences(user, email, pass);
-    print('provAddRegister: ${listregister[0].toString()}');
-    print('provAddRegister: ${listregister.length}');
+    // print('provAddRegister: ${listregister[0].toString()}');
+    // print('provAddRegister: ${listregister.length}');
     notifyListeners();
   }
 
@@ -68,9 +68,9 @@ class GameStoreManager extends ChangeNotifier {
     await loginData.setString('password', pass);
     // await loginData.setBool('isLogin', !isLogin);
 
-    print('provAddShared: ${loginData.getString('username')}');
-    print('boolRemove1: ${loginData.getBool('remove')}');
-    print('boolIsLogin1: ${loginData.getBool('isLogin')}');
+    // print('provAddShared: ${loginData.getString('username')}');
+    // print('boolRemove1: ${loginData.getBool('remove')}');
+    // print('boolIsLogin1: ${loginData.getBool('isLogin')}');
 
     notifyListeners();
   }
@@ -80,9 +80,9 @@ class GameStoreManager extends ChangeNotifier {
     await loginData.clear();
     // await loginData.setBool('isLogin', isLogin);
 
-    print('provDelete: ${listregister.toString()}');
-    print('boolRemove2: ${loginData.getBool('remove')}');
-    print('boolIsLogin2: ${loginData.getBool('isLogin')}');
+    // print('provDelete: ${listregister.toString()}');
+    // print('boolRemove2: ${loginData.getBool('remove')}');
+    // print('boolIsLogin2: ${loginData.getBool('isLogin')}');
 
     notifyListeners();
   }

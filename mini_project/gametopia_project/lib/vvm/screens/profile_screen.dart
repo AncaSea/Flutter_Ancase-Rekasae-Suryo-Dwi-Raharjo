@@ -42,12 +42,7 @@ class _ProfilePageState extends State<ProfilePage> {
         password = loginData.getString('password') ?? 'no password';
       });
     }
-    print('email: $email');
-    // if (email != 'no user') {
       prov.setDataUser(email, password);
-      // items.add(ProfileInfoItem('Email', email));
-      // items.add(ProfileInfoItem('Password', password));
-    // }
   }
 
   @override

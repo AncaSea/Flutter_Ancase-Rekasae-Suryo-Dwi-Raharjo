@@ -58,7 +58,6 @@ class _DataDetailScreenState extends State<DataDetailScreen> {
             leading: IconButton(
               onPressed: () {
                 Navigator.pushReplacementNamed(context, HomePage.routeName);},
-                // Navigator.pushReplacementNamed(context, HomePage.routeName);},
               icon: const Icon( Icons.arrow_back, color: Colors.black,),
             ),
             actions: [
