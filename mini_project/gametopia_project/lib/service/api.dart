@@ -22,7 +22,7 @@ class ServiceAPI {
         return handler.next(options);
       },
     ));
-    // dio.interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
+    dio.interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
   }
 
   Future<List<GameModel>> getAllGamesApi() async {

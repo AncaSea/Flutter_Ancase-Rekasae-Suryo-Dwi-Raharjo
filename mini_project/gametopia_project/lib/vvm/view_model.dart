@@ -55,7 +55,7 @@ class GameStoreManager extends ChangeNotifier {
   }
 
   Future<void> removeRegister() async {
-    // listregister.clear();
+    items.clear();
     await removePreferences();
     notifyListeners();
   }
