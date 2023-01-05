@@ -4,10 +4,6 @@ import '../models/game_model.dart';
 import '../models/gamebycategory_model.dart';
 import '../models/gamedetail_model.dart';
 
-const apiKey = '66d83598e55d46a0986c0bbc8e1d4bf1';
-const rapidApiKey = 'baa6b03797mshfc7334b2f7039b8p1815e8jsnfa4d834e86c8';
-const rapidApiHost = 'free-to-play-games-database.p.rapidapi.com';
-
 class ServiceAPI {
 
   final dio = Dio(BaseOptions(
